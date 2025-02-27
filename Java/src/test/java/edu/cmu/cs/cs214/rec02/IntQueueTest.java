@@ -8,12 +8,11 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * TODO: 1. The {@link LinkedIntQueue} has no bugs. We've provided you with some example test cases.
+ * 1. The {@link LinkedIntQueue} has no bugs. We've provided you with some example test cases.
  * Write your own unit tests to test against IntQueue interface with specification testing method
  * using mQueue = new LinkedIntQueue();
  *
@@ -47,21 +46,19 @@ public class IntQueueTest {
 
   @Test
   public void testNotEmpty() {
-    // TODO: write your own unit test
     mQueue.enqueue(1234);
     assertFalse(mQueue.isEmpty());
   }
 
   @Test
   public void testPeekEmptyQueue() {
-    // TODO: write your own unit test
-    fail("Test not implemented");
+    assertNull(mQueue.peek());
   }
 
   @Test
   public void testPeekNoEmptyQueue() {
-    // TODO: write your own unit test
-    fail("Test not implemented");
+    mQueue.enqueue(1111);
+    assertNotNull(mQueue.peek());
   }
 
   @Test
@@ -76,8 +73,13 @@ public class IntQueueTest {
 
   @Test
   public void testDequeue() {
-    // TODO: write your own unit test
-    fail("Test not implemented");
+    for (int i = 0; i < testList.size(); i++) {
+      mQueue.enqueue(testList.get(i));
+    }
+    for (int i = 0; i < testList.size(); i++) {
+      assertEquals(mQueue.dequeue(), testList.get(i));
+      assertEquals(testList.size() - i - 1, mQueue.size());
+    }
   }
 
   @Test
