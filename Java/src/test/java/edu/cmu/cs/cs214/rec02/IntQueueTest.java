@@ -1,6 +1,6 @@
 package edu.cmu.cs.cs214.rec02;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -8,8 +8,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * TODO: 1. The {@link LinkedIntQueue} has no bugs. We've provided you with some example test cases.
@@ -29,7 +30,7 @@ public class IntQueueTest {
   private List<Integer> testList;
 
   /** Called before each test. */
-  @Before
+  @BeforeEach
   public void setUp() {
     // comment/uncomment these lines to test each class
     mQueue = new LinkedIntQueue();
