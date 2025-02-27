@@ -108,4 +108,42 @@ public class IntQueueTest {
             }
         }
     }
+
+    @Test
+    public void testDequeueEmptyQueue() {
+        assertNull(mQueue.dequeue());
+    }
+
+    @Test
+    public void testClear() {
+        for (int i = 0; i < testList.size(); i++) {
+            mQueue.enqueue(testList.get(i));
+        }
+        assertNotNull(mQueue.peek());
+        assertNotEquals(mQueue.size(), 0);
+
+        mQueue.clear();
+        assertNull(mQueue.peek());
+        assertNull(mQueue.dequeue());
+        assertEquals(mQueue.size(), 0);
+    }
+
+    @Test
+    public void testCapacity() {
+        int testElementCount = 2;
+        int testElementCount2 = 13;
+        for (int i = 100; i < testElementCount + 100; i++) {
+            mQueue.enqueue(i);
+        }
+        for (int i = 100; i < testElementCount + 100; i++) {
+            assertEquals(mQueue.dequeue(), i);
+        }
+
+        for (int i = 1; i < testElementCount2 + 1; i++) {
+            mQueue.enqueue(i);
+        }
+        for (int i = 1; i < testElementCount2 + 1; i++) {
+            assertEquals(mQueue.dequeue(), i);
+        }
+    }
 }
